@@ -54,6 +54,22 @@ programming skills and tackle challenges in web development, particularly in use
 shopping cart functionality.""",
             'images': ['project3-1.png', 'project3-2.png'],
             'github_url': 'https://github.com/sepehrsprr',
+        },
+        {
+            'title': 'YT Downloader',
+            'description': """The YT Downloader is a Python project that uses the Tkinter library to create a GUI application for 
+downloading video and audio from YouTube. It provides a user-friendly interface for entering links and 
+managing downloads easily.""",
+            'images': ['project4.png'],
+            'github_url': 'https://github.com/sepehrsprr',
+        },
+        {
+            'title': 'leaning partner system',
+            'description': """it is a system that helps students to find a partner to study with.
+            it is one of my first ever projects that I have done in my life.
+            used custom TKinter library to create the GUI""",
+            'images': ['project5.png', 'project5-2.png'],
+            'github_url': 'https://github.com/sepehrsprr',
         }
     ]
     return render_template('index.html', projects=projects)
