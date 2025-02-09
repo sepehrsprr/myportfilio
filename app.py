@@ -9,9 +9,9 @@ load_dotenv()
 app = Flask(__name__)
 
 # Email configuration
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = os.getenv('MAIL_PORT')
+app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS')
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_USERNAME')
@@ -76,27 +76,19 @@ managing downloads easily.""",
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
+    name = request.form['name']
+    email = request.form['email']
+    subject = request.form['subject']
+    message = request.form['message']
+    
+    msg = Message(subject, sender=email, recipients=[os.getenv('MAIL_USERNAME')])
+    msg.body = f"From: {name} <{email}>\n\n{message}"
+    
     try:
-        name = request.form.get('name')
-        email = request.form.get('email')
-        subject = request.form.get('subject')
-        message = request.form.get('message')
-        
-        msg = Message(
-            subject=f"Portfolio Contact: {subject}",
-            recipients=[app.config['MAIL_USERNAME']],
-            body=f"""
-            From: {name} <{email}>
-            
-            {message}
-            """
-        )
-        
         mail.send(msg)
-        flash('Your message has been sent successfully!', 'success')
+        flash('Message sent successfully!', 'success')
     except Exception as e:
-        print(f"Error sending email: {str(e)}")  # For debugging
-        flash('An error occurred while sending your message. Please try again.', 'error')
+        flash(f'Failed to send message: {str(e)}', 'danger')
     
     return redirect(url_for('home', _anchor='contact'))
 
