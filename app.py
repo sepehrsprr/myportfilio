@@ -41,8 +41,9 @@ interface and allows two players to compete against each other on a digital boar
             'github_url': 'https://github.com/sepehrsprr',
         },
         {
-            'title': 'Project 2',
-            'description': 'Description of project 2',
+            'title': 'ToDo App',
+            'description': """"The ToDO App is a simple yet effective Django-based application used to manage to-do lists. It offers 
+features such as adding, editing, and deleting tasks to help streamline everyday organization""",
             'images': ['project2-1.jpg', 'project2-2.jpg'],
             'github_url': 'https://github.com/sepehrsprr',
         }
