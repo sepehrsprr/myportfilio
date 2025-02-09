@@ -51,7 +51,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: none; /* Hide default cursor */
 }
 
 #canvas-container {
@@ -589,11 +588,6 @@ body {
         padding: 0.8rem;
     }
 
-    .cursor-aura {
-        width: 200px;
-        height: 200px;
-    }
-
     .footer {
         padding: 1.5rem 0;
         margin-top: 3rem;
@@ -676,11 +670,6 @@ body {
     .submit-btn {
         padding: 0.7rem;
         font-size: 0.9rem;
-    }
-
-    .cursor-aura {
-        width: 150px;
-        height: 150px;
     }
 
     .footer {
@@ -846,19 +835,12 @@ textarea.form-control {
     }
 }
 
-/* Remove old cursor-aura styles */
+/* Remove cursor-aura related styles */
 .cursor-aura {
     display: none;
 }
 
-/* Add styles for rainbow particles */
+/* Remove rainbow particles */
 .rainbow-particle {
-    position: fixed;
-    pointer-events: none;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    z-index: 1000;
-    opacity: 1;
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    display: none;
 }
