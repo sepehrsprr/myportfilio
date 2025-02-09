@@ -46,6 +46,14 @@ interface and allows two players to compete against each other on a digital boar
 features such as adding, editing, and deleting tasks to help streamline everyday organization""",
             'images': ['project2-1.jpg', 'project2-2.jpg'],
             'github_url': 'https://github.com/sepehrsprr',
+        },
+        {
+            'title': 'Berliner Shop',
+            'description': """The E-Commerce project is an online shop developed using Django, HTML, and CSS. It aims to enhance my 
+programming skills and tackle challenges in web development, particularly in user management and 
+shopping cart functionality.""",
+            'images': ['project3-1.png', 'project3-2.png'],
+            'github_url': 'https://github.com/sepehrsprr',
         }
     ]
     return render_template('index.html', projects=projects)
